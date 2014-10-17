@@ -15,3 +15,17 @@ E:\GitHubCode\appGrider\appGrider\bin\Debug\DbHelper.pdb
 E:\GitHubCode\appGrider\appGrider\bin\Debug\DbHelper.xml
 E:\GitHubCode\appGrider\appGrider\obj\x86\Debug\GenerateResource.read.1.tlog
 E:\GitHubCode\appGrider\appGrider\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\GitCode\GitHub\appGrider\appGrider\bin\Debug\appGrider.exe.config
+E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Debug\appGrider.exe
+E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Debug\appGrider.xml
+E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Debug\appGrider.pdb
+E:\GitCode\GitHub\appGrider\appGrider\bin\Debug\appGrider.exe
+E:\GitCode\GitHub\appGrider\appGrider\bin\Debug\appGrider.pdb
+E:\GitCode\GitHub\appGrider\appGrider\bin\Debug\appGrider.xml
+E:\GitCode\GitHub\appGrider\appGrider\bin\Debug\DbHelper.dll
+E:\GitCode\GitHub\appGrider\appGrider\bin\Debug\DbHelper.pdb
+E:\GitCode\GitHub\appGrider\appGrider\bin\Debug\DbHelper.xml
+E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Debug\appGrider.vbprojResolveAssemblyReference.cache
+E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Debug\appGrider.Form1.resources
+E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Debug\appGrider.Resources.resources
+E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Debug\appGrider.vbproj.GenerateResource.Cache

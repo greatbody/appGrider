@@ -1,0 +1,15 @@
+E:\GitCode\GitHub\appGrider\测试内部函数\bin\Release\测试内部函数.dll
+E:\GitCode\GitHub\appGrider\测试内部函数\bin\Release\测试内部函数.pdb
+E:\GitCode\GitHub\appGrider\测试内部函数\bin\Release\测试内部函数.xml
+E:\GitCode\GitHub\appGrider\测试内部函数\bin\Release\appGrider.exe
+E:\GitCode\GitHub\appGrider\测试内部函数\bin\Release\DbHelper.dll
+E:\GitCode\GitHub\appGrider\测试内部函数\bin\Release\appGrider.pdb
+E:\GitCode\GitHub\appGrider\测试内部函数\bin\Release\appGrider.xml
+E:\GitCode\GitHub\appGrider\测试内部函数\bin\Release\DbHelper.pdb
+E:\GitCode\GitHub\appGrider\测试内部函数\bin\Release\DbHelper.xml
+E:\GitCode\GitHub\appGrider\测试内部函数\bin\Release\appGrider_Accessor.exe
+E:\GitCode\GitHub\appGrider\测试内部函数\bin\Release\appGrider_Accessor.pdb
+E:\GitCode\GitHub\appGrider\测试内部函数\obj\Release\测试内部函数.vbprojResolveAssemblyReference.cache
+E:\GitCode\GitHub\appGrider\测试内部函数\obj\Release\测试内部函数.dll
+E:\GitCode\GitHub\appGrider\测试内部函数\obj\Release\测试内部函数.xml
+E:\GitCode\GitHub\appGrider\测试内部函数\obj\Release\测试内部函数.pdb

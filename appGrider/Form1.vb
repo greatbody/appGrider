@@ -10,8 +10,11 @@ Public Class Form1
         'k.Open()
         'k.Close()
         'SqlDbHelper.SetUnsafeConnString(String.Format("Server={0};uid=sa;Pwd={1};", "SUNSOFT-PC\SUNSOFTSQL", "windows"))
-        Dim dbm As New DbManager(String.Format("Server={0};uid=sa;Pwd={1};", "SUNSOFT-PC\SUNSOFTSQL", "windows"))
-        Dim k() As DbManager.DbInfo = dbm.GetDataBase()
+        'Dim dbm As New DbManager(String.Format("Server={0};uid=sa;Pwd={1};", "SUNSOFT-PC\SUNSOFTSQL", "windows"))
+        'Dim k() As DbManager.DbInfo = dbm.GetDataBase()
+        Dim k As New XmlCreator
+        MsgBox(k.GetTitlePixel("中45国King成功"))
+
         Stop
     End Sub
 End Class
