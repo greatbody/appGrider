@@ -3,18 +3,51 @@
 Public Class XmlCreator
     Private _XmlCode As StringBuilder
     Public Enum AlignType
-
+        Left = 1
+        Center = 2
+        Right = 4
     End Enum
 
-    Public Sub NewText(ByVal FieldName As String, ByVal FieldTitle As String, ByVal AlignType As String)
+    Public Sub NewText(ByVal FieldName As String, ByVal FieldTitle As String, ByVal TextAlign As AlignType)
         Dim TextCode As New StringBuilder("")
         TextCode.AppendLine(String.Format("<cell field=""{0}"" title=""{1}"" width=""{2}"" orderby=""{0}"">", FieldName, FieldTitle, GetTitlePixel(FieldTitle)))
-        '        <cell field ="字段" title ="[中文字段名]" width ="65" orderby ="DjArea">
-        '  <attribute align ="center" />
-        '</cell>
-
+        Select Case TextAlign
+            Case AlignType.Left
+                TextCode.AppendLine(String.Format("<attribute align=""left"" />"))
+            Case AlignType.Center
+                TextCode.AppendLine(String.Format("<attribute align=""center"" />"))
+            Case AlignType.Right
+                TextCode.AppendLine(String.Format("<attribute align=""right"" />"))
+        End Select
+        TextCode.AppendLine("</cell>")
+        _XmlCode.AppendLine(TextCode.ToString())
     End Sub
 
+    Public Sub NewNumber(ByVal FieldName As String, ByVal FieldTitle As String, ByVal IsInteger As Boolean)
+        Dim newDic As New Dictionary(Of String, String)
+        Dim TextCode As New StringBuilder("")
+        newDic.Add("field", FieldName)
+        newDic.Add("title", FieldTitle)
+        newDic.Add("width", GetTitlePixel(FieldTitle).ToString())
+        newDic.Add("orderby", FieldName)
+        If IsInteger Then
+            newDic.Add("format", "#,##0")
+        Else
+            newDic.Add("format", "#,##0.00")
+        End If
+        TextCode.Append("<cell ")
+        For Each keyValuePair As KeyValuePair(Of String,String) In newDic
+            TextCode.Append(keyValuePair.Key & "=""" & keyValuePair.Value & """ ")
+        Next
+        TextCode.Append(">" & vbCrLf)
+        TextCode.AppendLine(String.Format("<attribute align=""right"" />"))
+        TextCode.AppendLine("</cell>")
+        _XmlCode.AppendLine(TextCode.ToString())
+    End Sub
+
+    Public Function CreateCode() As String
+
+    End Function
 #Region "内部函数"
     Private Function GetTitlePixel(ByVal TextContent As String) As Integer
         Dim e As Integer
