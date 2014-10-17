@@ -46,7 +46,7 @@ Public Class XmlCreator
     End Sub
 
     Public Function CreateCode() As String
-
+        Return _XmlCode.ToString()
     End Function
 #Region "内部函数"
     Private Function GetTitlePixel(ByVal TextContent As String) As Integer
