@@ -1,6 +1,7 @@
 ﻿Imports SunSoft.DAL
 Public Class MainWin
     Private _config As New ConfigManager
+    Private _TextBinder As New KeyBinder
     Private Sub btnOk_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOk.Click
         Dim k As New XmlCreator
         k.SetupDbConn(txtServer.Text, txtDbName.Text, txtUser.Text, txtPass.Text)
@@ -9,12 +10,12 @@ Public Class MainWin
         txtXml.AppendText(xml)
     End Sub
 
-    Private Sub txtSQL_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSQL.KeyDown
-        If e.KeyCode = Keys.A AndAlso (e.KeyData And Keys.Control) Then
-            '全选
-            txtSQL.SelectAll()
-        End If
-    End Sub
+    'Private Sub txtSQL_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSQL.KeyDown
+    '    If e.KeyCode = Keys.A AndAlso (e.KeyData And Keys.Control) Then
+    '        '全选
+    '        txtSQL.SelectAll()
+    '    End If
+    'End Sub
 
 
     Private Sub chkEnConfig_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkEnConfig.CheckedChanged
@@ -63,6 +64,9 @@ Public Class MainWin
         txtSQL.SelectAll()
 
         AlterSetting(False)
+
+        _TextBinder.BindControl(txtSQL)
+        _TextBinder.BindControl(txtXml)
     End Sub
     '
     Private Sub AlterSetting(ByVal AlterValue As Boolean)
