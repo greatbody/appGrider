@@ -37,7 +37,7 @@ Public Class XmlCreator
         For Each dataColumn As DataColumn In TmpDt.Columns
             Dim tmpFieldName As String = dataColumn.ColumnName
             Select Case dataColumn.DataType
-                Case System.Type.GetType("System.Decimal")
+                Case Type.GetType("System.Decimal")
                     NewNumber(tmpFieldName, tmpFieldName, False)
                 Case Type.GetType("System.Integer")
                     NewNumber(tmpFieldName, tmpFieldName, True)
