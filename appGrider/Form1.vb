@@ -2,22 +2,11 @@
 Public Class MainWin
     Private _config As New ConfigManager
     Private Sub btnOk_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOk.Click
-        'Dim k As New SqlClient.SqlConnection("")
-        'k.ConnectionString = String.Format("Server={0};uid=sa;Pwd={1};", "SUNSOFT-PC\SUNSOFTSQL", "windows")
-        'Dim com As New SqlClient.SqlCommand
-        'com.Connection = k
-        'com.CommandText = "select * from sys.databases"
-        'com.
-        'k.Open()
-        'k.Close()
-        'SqlDbHelper.SetUnsafeConnString(String.Format("Server={0};uid=sa;Pwd={1};", "SUNSOFT-PC\SUNSOFTSQL", "windows"))
-        'Dim dbm As New DbManager(String.Format("Server={0};uid=sa;Pwd={1};", "SUNSOFT-PC\SUNSOFTSQL", "windows"))
-        'Dim k() As DbManager.DbInfo = dbm.GetDataBase()
         Dim k As New XmlCreator
         k.SetupDbConn(txtServer.Text, txtDbName.Text, txtUser.Text, txtPass.Text)
-        'k.NewNumber("TotalDj", "底价总价", False)
         Dim xml As String = k.XmlFromSQL(txtSQL.Text)
-        Stop
+        txtXml.Clear()
+        txtXml.AppendText(xml)
     End Sub
 
     Private Sub txtSQL_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSQL.KeyDown
@@ -39,20 +28,29 @@ Public Class MainWin
             txtDbName.Enabled = False
             txtUser.Enabled = False
             txtPass.Enabled = False
+            SaveConfigData()
         End If
     End Sub
 
     Private Sub MainWin_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         'baocunshuju
+        SaveConfigData()
+    End Sub
+    '数据保存
+    ''' <summary>
+    ''' 保存页面上的配置数据
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private Sub SaveConfigData()
         With _config
             .SaveConf("server", txtServer.Text)
             .SaveConf("dbname", txtDbName.Text)
             .SaveConf("user", txtUser.Text)
             .SaveConf("pass", txtPass.Text)
+            .SaveConf("defSQL", txtSQL.Text)
         End With
         _config.SaveConfigFile()
     End Sub
-
     '页面控制
     Private Sub MainWin_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Me.Show()
@@ -60,6 +58,10 @@ Public Class MainWin
         txtDbName.Text = _config.GetConf("dbname")
         txtUser.Text = _config.GetConf("user")
         txtPass.Text = _config.GetConf("pass")
+
+        txtSQL.Text = _config.GetConf("defSQL")
+        txtSQL.SelectAll()
+
         AlterSetting(False)
     End Sub
     '

@@ -1,1 +1,44 @@
-<Config><Common><Item Name="server">s</Item><Item Name="dbname">d</Item><Item Name="user">a</Item><Item Name="pass">&lt;&gt;</Item></Common></Config>
+<Config><Common><Item Name="server">10.5.10.75\SQL2008R2_CY</Item><Item Name="dbname">erp256_chengyu_cdxh</Item><Item Name="user">team_cy</Item><Item Name="pass">95938</Item><Item Name="defSQL">          select pb.bldfullname+(case when room.unit&lt;&gt;'' then '-'+room.unit+'-'+room.room else +'-'+room.room end ) as roominfo,
+          sc.OriginalTotalDj as 原底价总价,
+          sc.OriginalPriceDj as 原底价建筑单价,
+          sc.OriginalTnPriceDj as 原底价套内单价,
+          sc.OriginalTotal as 原标准总价,
+          sc.OriginalPrice as 原建筑单价,
+          sc.OriginalTnPrice as 原套内单价,
+          sc.originalbldarea as 原建筑面积,
+          sc.ScBldArea as 现建筑面积,
+          sc.originaltnarea as 原套内面积,
+          sc.sctnarea as 现套内面积,
+          sc.originalareastatus as originalareastatus,
+          sc.areastatus as 现面积状态,
+          sc.RoomGUID,
+          sc.ScAreaChangeGUID,
+          --用于搜索的字段
+          pb.bldfullname,
+          pb.ProjGUID,
+          --用于排序的字段
+          pb.bldguid,
+          room.unit,
+          room.floorno,
+          room.no,
+          --开始计算的sql
+          sc.NewTotalDj as 现底价总价,
+          sc.NewPriceDj as 现底价建筑单价,
+          sc.NewTnPriceDj as 现底价套内单价,
+          sc.NewTotal as 现标准总价,
+          sc.NewPrice as 现建筑单价,
+          sc.NewTnPrice as 现套内单价,
+          pentity.InitiateDatetime as 发起时间,
+          pentity.FinishDatetime as 审核通过时间,
+          pentity.ProcessGUID
+          from dbo.s_scareachange sc
+          left join dbo.p_room room on room.roomguid = sc.roomguid
+          left join dbo.p_building pb on pb.bldguid = room.bldguid
+          left join dbo.myWorkflowProcessEntity pentity on sc.BusinessGUID = pentity.BusinessGUID
+          left join
+          (
+          select
+          (select case paramvalue when '元' then 0 when '角' then 1 else 2 end  from dbo.mybizparamoption where paramname='s_pricezero' and scopeguid='502962F9-D3DE-E211-9180-005056992512') as pricepre,
+          (select case paramvalue when '元' then 0 when '角' then 1 else 2 end  from dbo.mybizparamoption where paramname='s_totalzero' and scopeguid='502962F9-D3DE-E211-9180-005056992512') as totalpre
+          ) as baolw on 10=10
+          where sc.status='审核中'</Item></Common></Config>

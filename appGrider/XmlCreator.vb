@@ -1,9 +1,9 @@
 ﻿Imports System.Text
 Imports SunSoft.DAL
-
+Imports SunSoftUtility.TextProcessing
 Public Class XmlCreator
     Private _XmlCode As New StringBuilder
-
+    Private Const TAB_SIZE = 4
     Private _DbServer As String, _DbName As String, _DbUser As String, _DbPass As String
     Public Enum AlignType
         Left = 1
@@ -27,13 +27,34 @@ Public Class XmlCreator
     Public Function XmlFromSQL(ByVal SqlText As String) As String
         SqlDbHelper.SetUnsafeConnString(String.Format("Server={0};Database={1};uid={2};Pwd={3}", _DbServer, _DbName, _DbUser, _DbPass))
         Dim ExecQuery As SqlDbHelper = SqlDbHelper.Create() + SqlText
-        Dim TmpDt As DataTable = ExecQuery.FillDataTable()
-        For Each dataColumn As DataColumn In TmpDt.Rows
-            Dim i As String = dataColumn.ColumnName
+        Dim TmpDt As DataTable
+        Try
+            TmpDt = ExecQuery.FillDataTable()
+        Catch ex As Exception
+            Return "SQL错误！请检查！！！"
+        End Try
+
+        For Each dataColumn As DataColumn In TmpDt.Columns
+            Dim tmpFieldName As String = dataColumn.ColumnName
+            Select Case dataColumn.DataType
+                Case System.Type.GetType("System.Decimal")
+                    NewNumber(tmpFieldName, tmpFieldName, False)
+                Case Type.GetType("System.Integer")
+                    NewNumber(tmpFieldName, tmpFieldName, True)
+                Case Type.GetType("System.DateTime")
+                    NewDate(tmpFieldName, tmpFieldName, DateStringType.DateTime)
+                Case Type.GetType("System.Date")
+                    NewDate(tmpFieldName, tmpFieldName, DateStringType.DateOnly)
+                Case Else
+                    NewText(tmpFieldName, tmpFieldName, AlignType.Left)
+            End Select
         Next
-        Stop
+        Return CreateCode()
     End Function
 
+    Public Sub ClearCache()
+        _XmlCode.Clear()
+    End Sub
 
     Public Sub NewText(ByVal FieldName As String, ByVal FieldTitle As String, ByVal TextAlign As AlignType)
         Dim newDic As New Dictionary(Of String, String)
@@ -51,14 +72,14 @@ Public Class XmlCreator
         TextCode.Append(">" & vbCrLf)
         Select Case TextAlign
             Case AlignType.Left
-                TextCode.AppendLine(String.Format("<attribute align=""left"" />"))
+                TextCode.AppendLine(String.Format(RepeatString(" ", TAB_SIZE) & "<attribute align=""left"" />"))
             Case AlignType.Center
-                TextCode.AppendLine(String.Format("<attribute align=""center"" />"))
+                TextCode.AppendLine(String.Format(RepeatString(" ", TAB_SIZE) & "<attribute align=""center"" />"))
             Case AlignType.Right
-                TextCode.AppendLine(String.Format("<attribute align=""right"" />"))
+                TextCode.AppendLine(String.Format(RepeatString(" ", TAB_SIZE) & "<attribute align=""right"" />"))
         End Select
         TextCode.AppendLine("</cell>")
-        _XmlCode.AppendLine(TextCode.ToString())
+        _XmlCode.Append(TextCode.ToString())
     End Sub
 
     Public Sub NewNumber(ByVal FieldName As String, ByVal FieldTitle As String, ByVal IsInteger As Boolean)
@@ -80,9 +101,9 @@ Public Class XmlCreator
             TextCode.Append(keyValuePair.Key & "=""" & keyValuePair.Value & """ ")
         Next
         TextCode.Append(">" & vbCrLf)
-        TextCode.AppendLine(String.Format("<attribute align=""right"" />"))
+        TextCode.AppendLine(String.Format(RepeatString(" ", TAB_SIZE) & "<attribute align=""right"" />"))
         TextCode.AppendLine("</cell>")
-        _XmlCode.AppendLine(TextCode.ToString())
+        _XmlCode.Append(TextCode.ToString())
     End Sub
 
     Public Sub NewDate(ByVal FieldName As String, ByVal FieldTitle As String, ByVal DateType As DateStringType)
@@ -107,9 +128,9 @@ Public Class XmlCreator
             TextCode.Append(keyValuePair.Key & "=""" & keyValuePair.Value & """ ")
         Next
         TextCode.Append(">" & vbCrLf)
-        TextCode.AppendLine(String.Format("<attribute align=""right"" />"))
+        TextCode.AppendLine(String.Format(RepeatString(" ", TAB_SIZE) & "<attribute align=""right"" />"))
         TextCode.AppendLine("</cell>")
-        _XmlCode.AppendLine(TextCode.ToString())
+        _XmlCode.Append(TextCode.ToString())
     End Sub
 
     Public Function CreateCode() As String
@@ -119,8 +140,8 @@ Public Class XmlCreator
     Private Function GetTitlePixel(ByVal TextContent As String) As Integer
         Dim e As Integer
         Dim c As Integer
-        e = LenB(TextContent) - Len(TextContent)
-        c = Len(TextContent) - e
+        c = LenB(TextContent) - Len(TextContent)
+        e = Len(TextContent) - e
         Return 6 * e + 12 * c - 1
     End Function
     Private Function LenB(ByVal oString As String) As Integer

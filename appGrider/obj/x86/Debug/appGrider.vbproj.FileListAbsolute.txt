@@ -32,3 +32,6 @@ E:\GitHubCode\appGrider\appGrider\bin\Debug\SunSoftUtility.dll
 E:\GitHubCode\appGrider\appGrider\obj\x86\Debug\appGrider.MainWin.resources
 E:\GitHubCode\appGrider\appGrider\bin\Debug\SunSoftUtility.pdb
 E:\GitHubCode\appGrider\appGrider\bin\Debug\SunSoftUtility.xml
+E:\GitCode\GitHub\appGrider\appGrider\bin\Debug\SunSoftUtility.dll
+E:\GitCode\GitHub\appGrider\appGrider\bin\Debug\SunSoftUtility.pdb
+E:\GitCode\GitHub\appGrider\appGrider\bin\Debug\SunSoftUtility.xml

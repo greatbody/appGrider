@@ -34,6 +34,8 @@ Partial Class MainWin
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtXml = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -52,7 +54,7 @@ Partial Class MainWin
         Me.txtSQL.Multiline = True
         Me.txtSQL.Name = "txtSQL"
         Me.txtSQL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtSQL.Size = New System.Drawing.Size(500, 472)
+        Me.txtSQL.Size = New System.Drawing.Size(500, 209)
         Me.txtSQL.TabIndex = 1
         '
         'GroupBox1
@@ -148,11 +150,32 @@ Partial Class MainWin
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "服务器"
         '
+        'txtXml
+        '
+        Me.txtXml.Location = New System.Drawing.Point(12, 266)
+        Me.txtXml.Multiline = True
+        Me.txtXml.Name = "txtXml"
+        Me.txtXml.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.txtXml.Size = New System.Drawing.Size(500, 219)
+        Me.txtXml.TabIndex = 3
+        '
+        'Button1
+        '
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Location = New System.Drawing.Point(367, 222)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(144, 44)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "复制到剪贴板(&C)"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'MainWin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(913, 496)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.txtXml)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.txtSQL)
         Me.Controls.Add(Me.btnOk)
@@ -176,5 +199,7 @@ Partial Class MainWin
     Friend WithEvents txtUser As System.Windows.Forms.TextBox
     Friend WithEvents txtDbName As System.Windows.Forms.TextBox
     Friend WithEvents txtServer As System.Windows.Forms.TextBox
+    Friend WithEvents txtXml As System.Windows.Forms.TextBox
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 
 End Class

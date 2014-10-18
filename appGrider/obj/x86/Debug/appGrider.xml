@@ -6,7 +6,12 @@ appGrider
 </name>
 </assembly>
 <members>
-<member name="P:appGrider.My.Resources.Resources.ResourceManager">
+<member name="M:appGrider.MainWin.SaveConfigData">
+	<summary>
+ 保存页面上的配置数据
+ </summary>
+	<remarks></remarks>
+</member><member name="P:appGrider.My.Resources.Resources.ResourceManager">
 	<summary>
   返回此类使用的缓存的 ResourceManager 实例。
 </summary>
