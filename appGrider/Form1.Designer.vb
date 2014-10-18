@@ -25,15 +25,15 @@ Partial Class MainWin
         Me.btnOk = New System.Windows.Forms.Button()
         Me.txtSQL = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtServer = New System.Windows.Forms.TextBox()
-        Me.txtDbName = New System.Windows.Forms.TextBox()
-        Me.txtUser = New System.Windows.Forms.TextBox()
-        Me.txtPass = New System.Windows.Forms.TextBox()
         Me.chkEnConfig = New System.Windows.Forms.CheckBox()
+        Me.txtPass = New System.Windows.Forms.TextBox()
+        Me.txtUser = New System.Windows.Forms.TextBox()
+        Me.txtDbName = New System.Windows.Forms.TextBox()
+        Me.txtServer = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -73,32 +73,44 @@ Partial Class MainWin
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "配置数据库"
         '
-        'Label1
+        'chkEnConfig
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(16, 26)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(41, 12)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "服务器"
+        Me.chkEnConfig.AutoSize = True
+        Me.chkEnConfig.Location = New System.Drawing.Point(78, 0)
+        Me.chkEnConfig.Name = "chkEnConfig"
+        Me.chkEnConfig.Size = New System.Drawing.Size(72, 16)
+        Me.chkEnConfig.TabIndex = 8
+        Me.chkEnConfig.Text = "启用编辑"
+        Me.chkEnConfig.UseVisualStyleBackColor = True
         '
-        'Label2
+        'txtPass
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(16, 58)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(41, 12)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "数据库"
+        Me.txtPass.Location = New System.Drawing.Point(62, 120)
+        Me.txtPass.Name = "txtPass"
+        Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(45)
+        Me.txtPass.Size = New System.Drawing.Size(296, 21)
+        Me.txtPass.TabIndex = 7
         '
-        'Label3
+        'txtUser
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(16, 91)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(41, 12)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "账  号"
+        Me.txtUser.Location = New System.Drawing.Point(62, 87)
+        Me.txtUser.Name = "txtUser"
+        Me.txtUser.Size = New System.Drawing.Size(296, 21)
+        Me.txtUser.TabIndex = 6
+        '
+        'txtDbName
+        '
+        Me.txtDbName.Location = New System.Drawing.Point(62, 55)
+        Me.txtDbName.Name = "txtDbName"
+        Me.txtDbName.Size = New System.Drawing.Size(296, 21)
+        Me.txtDbName.TabIndex = 5
+        '
+        'txtServer
+        '
+        Me.txtServer.Location = New System.Drawing.Point(62, 22)
+        Me.txtServer.Name = "txtServer"
+        Me.txtServer.Size = New System.Drawing.Size(296, 21)
+        Me.txtServer.TabIndex = 4
         '
         'Label4
         '
@@ -109,46 +121,32 @@ Partial Class MainWin
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "密  码"
         '
-        'txtServer
+        'Label3
         '
-        Me.txtServer.Location = New System.Drawing.Point(62, 22)
-        Me.txtServer.Name = "txtServer"
-        Me.txtServer.Size = New System.Drawing.Size(296, 21)
-        Me.txtServer.TabIndex = 4
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(16, 91)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(41, 12)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "账  号"
         '
-        'txtDbName
+        'Label2
         '
-        Me.txtDbName.Location = New System.Drawing.Point(62, 55)
-        Me.txtDbName.Name = "txtDbName"
-        Me.txtDbName.Size = New System.Drawing.Size(296, 21)
-        Me.txtDbName.TabIndex = 5
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(16, 58)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(41, 12)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "数据库"
         '
-        'txtUser
+        'Label1
         '
-        Me.txtUser.Location = New System.Drawing.Point(62, 87)
-        Me.txtUser.Name = "txtUser"
-        Me.txtUser.Size = New System.Drawing.Size(296, 21)
-        Me.txtUser.TabIndex = 6
-        '
-        'txtPass
-        '
-        Me.txtPass.Location = New System.Drawing.Point(62, 120)
-        Me.txtPass.Name = "txtPass"
-        Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(45)
-        Me.txtPass.Size = New System.Drawing.Size(296, 21)
-        Me.txtPass.TabIndex = 7
-        '
-        'chkEnConfig
-        '
-        Me.chkEnConfig.AutoSize = True
-        Me.chkEnConfig.Checked = True
-        Me.chkEnConfig.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chkEnConfig.Location = New System.Drawing.Point(78, 0)
-        Me.chkEnConfig.Name = "chkEnConfig"
-        Me.chkEnConfig.Size = New System.Drawing.Size(72, 16)
-        Me.chkEnConfig.TabIndex = 8
-        Me.chkEnConfig.Text = "启用编辑"
-        Me.chkEnConfig.UseVisualStyleBackColor = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(16, 26)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(41, 12)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "服务器"
         '
         'MainWin
         '

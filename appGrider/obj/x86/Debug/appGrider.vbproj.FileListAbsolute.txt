@@ -2,7 +2,6 @@ E:\GitHubCode\appGrider\appGrider\bin\Debug\appGrider.exe
 E:\GitHubCode\appGrider\appGrider\bin\Debug\appGrider.pdb
 E:\GitHubCode\appGrider\appGrider\bin\Debug\appGrider.xml
 E:\GitHubCode\appGrider\appGrider\obj\x86\Debug\ResolveAssemblyReference.cache
-E:\GitHubCode\appGrider\appGrider\obj\x86\Debug\appGrider.Form1.resources
 E:\GitHubCode\appGrider\appGrider\obj\x86\Debug\appGrider.Resources.resources
 E:\GitHubCode\appGrider\appGrider\obj\x86\Debug\ResGen.read.1.tlog
 E:\GitHubCode\appGrider\appGrider\obj\x86\Debug\ResGen.write.1.tlog
@@ -29,3 +28,7 @@ E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Debug\appGrider.vbprojResolveAssem
 E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Debug\appGrider.Resources.resources
 E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Debug\appGrider.vbproj.GenerateResource.Cache
 E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Debug\appGrider.MainWin.resources
+E:\GitHubCode\appGrider\appGrider\bin\Debug\SunSoftUtility.dll
+E:\GitHubCode\appGrider\appGrider\obj\x86\Debug\appGrider.MainWin.resources
+E:\GitHubCode\appGrider\appGrider\bin\Debug\SunSoftUtility.pdb
+E:\GitHubCode\appGrider\appGrider\bin\Debug\SunSoftUtility.xml

@@ -67,6 +67,10 @@
     <Reference Include="DbHelper">
       <HintPath>.\DbHelper.dll</HintPath>
     </Reference>
+    <Reference Include="SunSoftUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\SunSoftUtility.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -85,6 +89,7 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigManager.vb" />
     <Compile Include="DbManager.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>

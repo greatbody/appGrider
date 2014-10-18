@@ -3,13 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "appGrider", "appGrider\appGrider.vbproj", "{C283EF0F-0712-4EE3-A4C4-2917C7350E09}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8414C1AC-046D-4071-AFDD-477A5C436311}"
-	ProjectSection(SolutionItems) = preProject
-		appGrider.vsmdi = appGrider.vsmdi
-		Local.testsettings = Local.testsettings
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = appGrider.vsmdi
