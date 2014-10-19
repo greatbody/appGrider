@@ -24,7 +24,7 @@ Partial Class MainWin
     Private Sub InitializeComponent()
         Me.btnOk = New System.Windows.Forms.Button()
         Me.txtSQL = New System.Windows.Forms.TextBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.grpConfig = New System.Windows.Forms.GroupBox()
         Me.chkEnConfig = New System.Windows.Forms.CheckBox()
         Me.txtPass = New System.Windows.Forms.TextBox()
         Me.txtUser = New System.Windows.Forms.TextBox()
@@ -36,12 +36,15 @@ Partial Class MainWin
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtXml = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.GroupBox1.SuspendLayout()
+        Me.grpField = New System.Windows.Forms.GroupBox()
+        Me.chkSelectAll = New System.Windows.Forms.CheckBox()
+        Me.grpConfig.SuspendLayout()
+        Me.grpField.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnOk
         '
-        Me.btnOk.Location = New System.Drawing.Point(703, 274)
+        Me.btnOk.Location = New System.Drawing.Point(710, 445)
         Me.btnOk.Name = "btnOk"
         Me.btnOk.Size = New System.Drawing.Size(191, 39)
         Me.btnOk.TabIndex = 0
@@ -57,23 +60,23 @@ Partial Class MainWin
         Me.txtSQL.Size = New System.Drawing.Size(500, 209)
         Me.txtSQL.TabIndex = 1
         '
-        'GroupBox1
+        'grpConfig
         '
-        Me.GroupBox1.Controls.Add(Me.chkEnConfig)
-        Me.GroupBox1.Controls.Add(Me.txtPass)
-        Me.GroupBox1.Controls.Add(Me.txtUser)
-        Me.GroupBox1.Controls.Add(Me.txtDbName)
-        Me.GroupBox1.Controls.Add(Me.txtServer)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(525, 7)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(368, 150)
-        Me.GroupBox1.TabIndex = 2
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "配置数据库"
+        Me.grpConfig.Controls.Add(Me.chkEnConfig)
+        Me.grpConfig.Controls.Add(Me.txtPass)
+        Me.grpConfig.Controls.Add(Me.txtUser)
+        Me.grpConfig.Controls.Add(Me.txtDbName)
+        Me.grpConfig.Controls.Add(Me.txtServer)
+        Me.grpConfig.Controls.Add(Me.Label4)
+        Me.grpConfig.Controls.Add(Me.Label3)
+        Me.grpConfig.Controls.Add(Me.Label2)
+        Me.grpConfig.Controls.Add(Me.Label1)
+        Me.grpConfig.Location = New System.Drawing.Point(525, 7)
+        Me.grpConfig.Name = "grpConfig"
+        Me.grpConfig.Size = New System.Drawing.Size(368, 150)
+        Me.grpConfig.TabIndex = 2
+        Me.grpConfig.TabStop = False
+        Me.grpConfig.Text = "配置数据库"
         '
         'chkEnConfig
         '
@@ -169,27 +172,50 @@ Partial Class MainWin
         Me.Button1.Text = "复制到剪贴板(&C)"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'grpField
+        '
+        Me.grpField.Controls.Add(Me.chkSelectAll)
+        Me.grpField.Location = New System.Drawing.Point(525, 165)
+        Me.grpField.Name = "grpField"
+        Me.grpField.Size = New System.Drawing.Size(368, 265)
+        Me.grpField.TabIndex = 5
+        Me.grpField.TabStop = False
+        Me.grpField.Text = "导出排序"
+        '
+        'chkSelectAll
+        '
+        Me.chkSelectAll.AutoSize = True
+        Me.chkSelectAll.Location = New System.Drawing.Point(78, -2)
+        Me.chkSelectAll.Name = "chkSelectAll"
+        Me.chkSelectAll.Size = New System.Drawing.Size(48, 16)
+        Me.chkSelectAll.TabIndex = 0
+        Me.chkSelectAll.Text = "全选"
+        Me.chkSelectAll.UseVisualStyleBackColor = True
+        '
         'MainWin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(913, 496)
+        Me.Controls.Add(Me.grpField)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtXml)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.grpConfig)
         Me.Controls.Add(Me.txtSQL)
         Me.Controls.Add(Me.btnOk)
         Me.Name = "MainWin"
         Me.Text = "欢迎使用appGrid生成工具"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.grpConfig.ResumeLayout(False)
+        Me.grpConfig.PerformLayout()
+        Me.grpField.ResumeLayout(False)
+        Me.grpField.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnOk As System.Windows.Forms.Button
     Friend WithEvents txtSQL As System.Windows.Forms.TextBox
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents grpConfig As System.Windows.Forms.GroupBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -201,5 +227,7 @@ Partial Class MainWin
     Friend WithEvents txtServer As System.Windows.Forms.TextBox
     Friend WithEvents txtXml As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents grpField As System.Windows.Forms.GroupBox
+    Friend WithEvents chkSelectAll As System.Windows.Forms.CheckBox
 
 End Class

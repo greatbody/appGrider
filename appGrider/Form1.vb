@@ -1,7 +1,11 @@
 ﻿Imports SunSoft.DAL
 Public Class MainWin
     Private _config As New ConfigManager
-    Private _TextBinder As New KeyBinder
+    Private _TextBinder As New ControlBinder
+    'Private _LocX As Integer
+    'Private _LocY As Integer
+    'Private _KeyDown As Boolean = False
+    Private _moveBinder As New ControlMoveBinder
     Private Sub btnOk_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOk.Click
         Dim k As New XmlCreator
         k.SetupDbConn(txtServer.Text, txtDbName.Text, txtUser.Text, txtPass.Text)
@@ -65,8 +69,16 @@ Public Class MainWin
 
         AlterSetting(False)
 
-        _TextBinder.BindControl(txtSQL)
-        _TextBinder.BindControl(txtXml)
+        _TextBinder.BindTextBox(txtSQL)
+        _TextBinder.BindTextBox(txtXml)
+
+        '尝试动态创建对象
+        Dim i As New CheckBox()
+        i.Text = "自动创建的"
+        i.Left = 10
+        i.Top = 10
+        grpField.Controls.Add(i)
+        _moveBinder.BindControl(i)
     End Sub
     '
     Private Sub AlterSetting(ByVal AlterValue As Boolean)
@@ -74,5 +86,25 @@ Public Class MainWin
         txtDbName.Enabled = AlterValue
         txtUser.Enabled = AlterValue
         txtPass.Enabled = AlterValue
+    End Sub
+
+    Private Sub chkSelectAll_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkSelectAll.CheckedChanged
+        If chkSelectAll.Checked Then
+            '勾选了，将框架内的都取消勾选
+            CheckBoxSet(True)
+        Else
+            '没有勾选，取消框架内所有勾选
+            CheckBoxSet(False)
+        End If
+    End Sub
+
+    Private Sub CheckBoxSet(ByVal stateDef As Boolean)
+        Dim sampleCheck As New CheckBox
+        For Each ctlTmp As Control In grpField.Controls
+            If Not ctlTmp.Equals(chkSelectAll) And ctlTmp.GetType() = sampleCheck.GetType() Then
+                '作为选择框
+                CType(ctlTmp, CheckBox).Checked = stateDef
+            End If
+        Next
     End Sub
 End Class

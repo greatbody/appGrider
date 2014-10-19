@@ -6,7 +6,64 @@ appGrider
 </name>
 </assembly>
 <members>
-<member name="P:appGrider.My.Resources.Resources.ResourceManager">
+<member name="F:appGrider.ControlMoveBinder._mouseState">
+	<summary>
+ 定义记录鼠标当前按键状态的变量
+ </summary>
+	<remarks></remarks>
+</member><member name="F:appGrider.ControlMoveBinder._locX">
+	<summary>
+ 定义记录鼠标当前坐标的两个变量
+ </summary>
+	<remarks></remarks>
+</member><member name="F:appGrider.ControlMoveBinder._throughMove">
+	<summary>
+ 记录本次是否拖动过。
+ </summary>
+	<remarks></remarks>
+</member><member name="T:appGrider.ControlMoveBinder.MouseState">
+	<summary>
+ 定义记录鼠标按键状态的枚举类型
+ </summary>
+	<remarks></remarks>
+</member><member name="M:appGrider.ControlMoveBinder.BindControl(System.Windows.Forms.Control@)">
+	<summary>
+ 绑定指定的控件，控件的移动操作将有类在内部进行操作
+ </summary>
+	<param name="CtlObj"></param>
+	<remarks></remarks>
+</member><member name="M:appGrider.ControlMoveBinder.MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+	<summary>
+ 内部函数，处理鼠标按下
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:appGrider.ControlMoveBinder.MouseUp(System.Object,System.Windows.Forms.MouseEventArgs)">
+	<summary>
+ 处理鼠标弹起的事件
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:appGrider.ControlMoveBinder.MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
+	<summary>
+ 处理鼠标移动的事件
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="T:appGrider.ControlMoveBinder">
+	<summary>
+ 本类提供对于控件拖动的处理。简化拖动操作。
+ </summary>
+	<remarks></remarks>
+</member><member name="T:appGrider.ControlBinder">
+	<summary>
+ 本类提供对控件快捷键ctrl+a的支持，仅适用于于TextBox等支持文本全选的控件。
+ </summary>
+	<remarks></remarks>
+</member><member name="P:appGrider.My.Resources.Resources.ResourceManager">
 	<summary>
   返回此类使用的缓存的 ResourceManager 实例。
 </summary>
