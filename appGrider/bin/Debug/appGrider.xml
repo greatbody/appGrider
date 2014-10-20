@@ -6,7 +6,17 @@ appGrider
 </name>
 </assembly>
 <members>
-<member name="F:appGrider.ControlMoveBinder._mouseState">
+<member name="M:appGrider.MainWin.SaveConfigData">
+	<summary>
+ 保存页面上的配置数据
+ </summary>
+	<remarks></remarks>
+</member><member name="T:appGrider.ControlBinder">
+	<summary>
+ 本类提供对控件快捷键ctrl+a的支持，仅适用于于TextBox等支持文本全选的控件。
+ </summary>
+	<remarks></remarks>
+</member><member name="F:appGrider.ControlMoveBinder._mouseState">
 	<summary>
  定义记录鼠标当前按键状态的变量
  </summary>
@@ -58,11 +68,6 @@ appGrider
  本类提供对于控件拖动的处理。简化拖动操作。
  </summary>
 	<remarks></remarks>
-</member><member name="T:appGrider.ControlBinder">
-	<summary>
- 本类提供对控件快捷键ctrl+a的支持，仅适用于于TextBox等支持文本全选的控件。
- </summary>
-	<remarks></remarks>
 </member><member name="P:appGrider.My.Resources.Resources.ResourceManager">
 	<summary>
   返回此类使用的缓存的 ResourceManager 实例。
@@ -76,11 +81,6 @@ appGrider
 	<summary>
   一个强类型的资源类，用于查找本地化的字符串等。
 </summary>
-</member><member name="M:appGrider.MainWin.SaveConfigData">
-	<summary>
- 保存页面上的配置数据
- </summary>
-	<remarks></remarks>
 </member>
 </members>
 </doc>

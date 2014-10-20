@@ -12,7 +12,7 @@ Public Class ControlBinder
         If e.KeyCode = Keys.A AndAlso (e.KeyData And Keys.Control) Then
             '全选
             txtControl.SelectAll()
+            e.SuppressKeyPress = True
         End If
-        e.SuppressKeyPress = True
     End Sub
 End Class

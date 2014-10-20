@@ -136,6 +136,60 @@ Public Class XmlCreator
     Public Function CreateCode() As String
         Return _XmlCode.ToString()
     End Function
+
+    Public Sub ExecBind(ByVal SqlQuery As String, ByRef lstBox As ListBox)
+        '初始化列表
+        lstBox.Items.Clear()
+        SqlDbHelper.SetUnsafeConnString(String.Format("Server={0};Database={1};uid={2};Pwd={3}", _DbServer, _DbName, _DbUser, _DbPass))
+        Dim ExecQuery As SqlDbHelper = SqlDbHelper.Create() + SqlQuery
+        Dim TmpDt As DataTable
+        Try
+            TmpDt = ExecQuery.FillDataTable()
+        Catch ex As Exception
+            MsgBox("SQL错误，请检查！")
+        End Try
+
+        For Each dataColumn As DataColumn In TmpDt.Columns
+            Dim tmpFieldName As String = dataColumn.ColumnName
+            Select Case dataColumn.DataType
+                Case Type.GetType("System.Decimal")
+                    lstBox.Items.Add(tmpFieldName & ",decimal")
+                Case Type.GetType("System.Integer")
+                    lstBox.Items.Add(tmpFieldName & ",integer")
+                Case Type.GetType("System.DateTime")
+                    lstBox.Items.Add(tmpFieldName & ",datetime")
+                Case Type.GetType("System.Date")
+                    lstBox.Items.Add(tmpFieldName & ",date")
+                Case Else
+                    lstBox.Items.Add(tmpFieldName & ",string")
+            End Select
+        Next
+    End Sub
+
+    Public Function XmlFromListBox(ByRef LstBox As ListBox) As String
+        Dim tmpArrStr() As String
+        If LstBox.Items.Count = 0 Then
+            Return "无选定数据"
+        End If
+        For i As Integer = 0 To LstBox.Items.Count - 1
+            tmpArrStr = Split(LstBox.Items(i), ",")
+            If tmpArrStr.Length = 2 Then
+                Select Case tmpArrStr(1)
+                    Case "decimal"
+                        NewNumber(tmpArrStr(0), tmpArrStr(0), False)
+                    Case "integer"
+                        NewNumber(tmpArrStr(0), tmpArrStr(0), True)
+                    Case "datetime"
+                        NewDate(tmpArrStr(0), tmpArrStr(0), DateStringType.DateTime)
+                    Case "date"
+                        NewDate(tmpArrStr(0), tmpArrStr(0), DateStringType.DateOnly)
+                    Case Else
+                        NewText(tmpArrStr(0), tmpArrStr(0), AlignType.Left)
+                End Select
+            End If
+        Next
+        Return CreateCode()
+    End Function
 #Region "内部函数"
     Private Function GetTitlePixel(ByVal TextContent As String) As Integer
         Dim e As Integer

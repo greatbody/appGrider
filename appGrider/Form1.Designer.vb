@@ -22,6 +22,7 @@ Partial Class MainWin
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainWin))
         Me.btnOk = New System.Windows.Forms.Button()
         Me.txtSQL = New System.Windows.Forms.TextBox()
         Me.grpConfig = New System.Windows.Forms.GroupBox()
@@ -37,18 +38,23 @@ Partial Class MainWin
         Me.txtXml = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.grpField = New System.Windows.Forms.GroupBox()
-        Me.chkSelectAll = New System.Windows.Forms.CheckBox()
+        Me.lstDest = New System.Windows.Forms.ListBox()
+        Me.lstSource = New System.Windows.Forms.ListBox()
+        Me.btnGetItems = New System.Windows.Forms.Button()
+        Me.btnClearS = New System.Windows.Forms.Button()
+        Me.btnClearD = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.grpConfig.SuspendLayout()
         Me.grpField.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnOk
         '
-        Me.btnOk.Location = New System.Drawing.Point(710, 445)
+        Me.btnOk.Location = New System.Drawing.Point(721, 452)
         Me.btnOk.Name = "btnOk"
-        Me.btnOk.Size = New System.Drawing.Size(191, 39)
+        Me.btnOk.Size = New System.Drawing.Size(88, 33)
         Me.btnOk.TabIndex = 0
-        Me.btnOk.Text = "执行获得XML"
+        Me.btnOk.Text = "2)获取XML"
         Me.btnOk.UseVisualStyleBackColor = True
         '
         'txtSQL
@@ -174,41 +180,91 @@ Partial Class MainWin
         '
         'grpField
         '
-        Me.grpField.Controls.Add(Me.chkSelectAll)
+        Me.grpField.Controls.Add(Me.lstDest)
+        Me.grpField.Controls.Add(Me.lstSource)
         Me.grpField.Location = New System.Drawing.Point(525, 165)
         Me.grpField.Name = "grpField"
-        Me.grpField.Size = New System.Drawing.Size(368, 265)
+        Me.grpField.Size = New System.Drawing.Size(368, 281)
         Me.grpField.TabIndex = 5
         Me.grpField.TabStop = False
         Me.grpField.Text = "导出排序"
         '
-        'chkSelectAll
+        'lstDest
         '
-        Me.chkSelectAll.AutoSize = True
-        Me.chkSelectAll.Location = New System.Drawing.Point(78, -2)
-        Me.chkSelectAll.Name = "chkSelectAll"
-        Me.chkSelectAll.Size = New System.Drawing.Size(48, 16)
-        Me.chkSelectAll.TabIndex = 0
-        Me.chkSelectAll.Text = "全选"
-        Me.chkSelectAll.UseVisualStyleBackColor = True
+        Me.lstDest.FormattingEnabled = True
+        Me.lstDest.ItemHeight = 12
+        Me.lstDest.Location = New System.Drawing.Point(200, 20)
+        Me.lstDest.Name = "lstDest"
+        Me.lstDest.Size = New System.Drawing.Size(162, 256)
+        Me.lstDest.TabIndex = 1
+        '
+        'lstSource
+        '
+        Me.lstSource.FormattingEnabled = True
+        Me.lstSource.ItemHeight = 12
+        Me.lstSource.Location = New System.Drawing.Point(9, 20)
+        Me.lstSource.Name = "lstSource"
+        Me.lstSource.Size = New System.Drawing.Size(161, 256)
+        Me.lstSource.TabIndex = 0
+        '
+        'btnGetItems
+        '
+        Me.btnGetItems.Location = New System.Drawing.Point(534, 452)
+        Me.btnGetItems.Name = "btnGetItems"
+        Me.btnGetItems.Size = New System.Drawing.Size(95, 33)
+        Me.btnGetItems.TabIndex = 6
+        Me.btnGetItems.Text = "1)获取列表项"
+        Me.btnGetItems.UseVisualStyleBackColor = True
+        '
+        'btnClearS
+        '
+        Me.btnClearS.Location = New System.Drawing.Point(643, 452)
+        Me.btnClearS.Name = "btnClearS"
+        Me.btnClearS.Size = New System.Drawing.Size(52, 33)
+        Me.btnClearS.TabIndex = 7
+        Me.btnClearS.Text = "清空"
+        Me.btnClearS.UseVisualStyleBackColor = True
+        '
+        'btnClearD
+        '
+        Me.btnClearD.Location = New System.Drawing.Point(831, 452)
+        Me.btnClearD.Name = "btnClearD"
+        Me.btnClearD.Size = New System.Drawing.Size(52, 33)
+        Me.btnClearD.TabIndex = 8
+        Me.btnClearD.Text = "清空"
+        Me.btnClearD.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Location = New System.Drawing.Point(12, 222)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(144, 44)
+        Me.Button2.TabIndex = 9
+        Me.Button2.Text = "直接获取XML"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'MainWin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(913, 496)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnClearD)
+        Me.Controls.Add(Me.btnClearS)
+        Me.Controls.Add(Me.btnGetItems)
         Me.Controls.Add(Me.grpField)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtXml)
         Me.Controls.Add(Me.grpConfig)
         Me.Controls.Add(Me.txtSQL)
         Me.Controls.Add(Me.btnOk)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MainWin"
         Me.Text = "欢迎使用appGrid生成工具"
         Me.grpConfig.ResumeLayout(False)
         Me.grpConfig.PerformLayout()
         Me.grpField.ResumeLayout(False)
-        Me.grpField.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -228,6 +284,11 @@ Partial Class MainWin
     Friend WithEvents txtXml As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents grpField As System.Windows.Forms.GroupBox
-    Friend WithEvents chkSelectAll As System.Windows.Forms.CheckBox
+    Friend WithEvents lstDest As System.Windows.Forms.ListBox
+    Friend WithEvents lstSource As System.Windows.Forms.ListBox
+    Friend WithEvents btnGetItems As System.Windows.Forms.Button
+    Friend WithEvents btnClearS As System.Windows.Forms.Button
+    Friend WithEvents btnClearD As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 
 End Class

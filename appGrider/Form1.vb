@@ -6,21 +6,11 @@ Public Class MainWin
     'Private _LocY As Integer
     'Private _KeyDown As Boolean = False
     Private _moveBinder As New ControlMoveBinder
+    Private k As New XmlCreator
     Private Sub btnOk_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOk.Click
-        Dim k As New XmlCreator
-        k.SetupDbConn(txtServer.Text, txtDbName.Text, txtUser.Text, txtPass.Text)
-        Dim xml As String = k.XmlFromSQL(txtSQL.Text)
-        txtXml.Clear()
-        txtXml.AppendText(xml)
+        k.ClearCache()
+        txtXml.Text = k.XmlFromListBox(lstDest)
     End Sub
-
-    'Private Sub txtSQL_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSQL.KeyDown
-    '    If e.KeyCode = Keys.A AndAlso (e.KeyData And Keys.Control) Then
-    '        '全选
-    '        txtSQL.SelectAll()
-    '    End If
-    'End Sub
-
 
     Private Sub chkEnConfig_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkEnConfig.CheckedChanged
         If chkEnConfig.CheckState = CheckState.Checked Then
@@ -72,13 +62,6 @@ Public Class MainWin
         _TextBinder.BindTextBox(txtSQL)
         _TextBinder.BindTextBox(txtXml)
 
-        '尝试动态创建对象
-        Dim i As New CheckBox()
-        i.Text = "自动创建的"
-        i.Left = 10
-        i.Top = 10
-        grpField.Controls.Add(i)
-        _moveBinder.BindControl(i)
     End Sub
     '
     Private Sub AlterSetting(ByVal AlterValue As Boolean)
@@ -88,23 +71,42 @@ Public Class MainWin
         txtPass.Enabled = AlterValue
     End Sub
 
-    Private Sub chkSelectAll_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkSelectAll.CheckedChanged
-        If chkSelectAll.Checked Then
-            '勾选了，将框架内的都取消勾选
-            CheckBoxSet(True)
-        Else
-            '没有勾选，取消框架内所有勾选
-            CheckBoxSet(False)
+
+    Private Sub btnGetItems_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetItems.Click
+
+        k.SetupDbConn(txtServer.Text, txtDbName.Text, txtUser.Text, txtPass.Text)
+        k.ExecBind(txtSQL.Text, lstSource)
+    End Sub
+
+    Private Sub lstSource_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles lstSource.MouseClick
+        If lstSource.Items.Count > 0 AndAlso lstSource.SelectedIndex >= 0 Then
+            lstDest.Items.Add(lstSource.Items(lstSource.SelectedIndex).ToString())
+            lstSource.Items.RemoveAt(lstSource.SelectedIndex)
         End If
     End Sub
 
-    Private Sub CheckBoxSet(ByVal stateDef As Boolean)
-        Dim sampleCheck As New CheckBox
-        For Each ctlTmp As Control In grpField.Controls
-            If Not ctlTmp.Equals(chkSelectAll) And ctlTmp.GetType() = sampleCheck.GetType() Then
-                '作为选择框
-                CType(ctlTmp, CheckBox).Checked = stateDef
-            End If
-        Next
+    Private Sub lstDest_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles lstDest.MouseClick
+        If lstDest.Items.Count > 0 AndAlso lstDest.SelectedIndex >= 0 Then
+            lstSource.Items.Add(lstDest.Items(lstDest.SelectedIndex).ToString())
+            lstDest.Items.RemoveAt(lstDest.SelectedIndex)
+        End If
+    End Sub
+
+    Private Sub btnClearS_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClearS.Click
+        lstSource.Items.Clear()
+    End Sub
+
+    Private Sub btnClearD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClearD.Click
+        lstDest.Items.Clear()
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Clipboard.Clear()
+        Clipboard.SetText(txtXml.Text)
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        k.SetupDbConn(txtServer.Text, txtDbName.Text, txtUser.Text, txtPass.Text)
+        txtXml.Text = k.XmlFromSQL(txtSQL.Text)
     End Sub
 End Class

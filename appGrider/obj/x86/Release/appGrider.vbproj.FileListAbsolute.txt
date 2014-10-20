@@ -5,9 +5,12 @@ E:\GitCode\GitHub\appGrider\appGrider\bin\Release\appGrider.xml
 E:\GitCode\GitHub\appGrider\appGrider\bin\Release\DbHelper.dll
 E:\GitCode\GitHub\appGrider\appGrider\bin\Release\DbHelper.pdb
 E:\GitCode\GitHub\appGrider\appGrider\bin\Release\DbHelper.xml
-E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Release\appGrider.Form1.resources
 E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Release\appGrider.Resources.resources
 E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Release\appGrider.vbproj.GenerateResource.Cache
 E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Release\appGrider.exe
 E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Release\appGrider.xml
 E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Release\appGrider.pdb
+E:\GitCode\GitHub\appGrider\appGrider\bin\Release\SunSoftUtility.dll
+E:\GitCode\GitHub\appGrider\appGrider\bin\Release\SunSoftUtility.pdb
+E:\GitCode\GitHub\appGrider\appGrider\bin\Release\SunSoftUtility.xml
+E:\GitCode\GitHub\appGrider\appGrider\obj\x86\Release\appGrider.MainWin.resources
