@@ -44,6 +44,7 @@ Partial Class MainWin
         Me.btnClearS = New System.Windows.Forms.Button()
         Me.btnClearD = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.chkRepeater = New System.Windows.Forms.CheckBox()
         Me.grpConfig.SuspendLayout()
         Me.grpField.SuspendLayout()
         Me.SuspendLayout()
@@ -68,6 +69,7 @@ Partial Class MainWin
         '
         'grpConfig
         '
+        Me.grpConfig.Controls.Add(Me.chkRepeater)
         Me.grpConfig.Controls.Add(Me.chkEnConfig)
         Me.grpConfig.Controls.Add(Me.txtPass)
         Me.grpConfig.Controls.Add(Me.txtUser)
@@ -244,6 +246,16 @@ Partial Class MainWin
         Me.Button2.Text = "直接获取XML"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'chkRepeater
+        '
+        Me.chkRepeater.AutoSize = True
+        Me.chkRepeater.Location = New System.Drawing.Point(156, 0)
+        Me.chkRepeater.Name = "chkRepeater"
+        Me.chkRepeater.Size = New System.Drawing.Size(72, 16)
+        Me.chkRepeater.TabIndex = 9
+        Me.chkRepeater.Text = "Repeater"
+        Me.chkRepeater.UseVisualStyleBackColor = True
+        '
         'MainWin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -290,5 +302,6 @@ Partial Class MainWin
     Friend WithEvents btnClearS As System.Windows.Forms.Button
     Friend WithEvents btnClearD As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents chkRepeater As System.Windows.Forms.CheckBox
 
 End Class
